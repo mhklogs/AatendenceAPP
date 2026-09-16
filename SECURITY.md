@@ -2,20 +2,21 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+The project is actively maintained. Guides and fixes apply to the latest release on the `main` branch.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version                | Supported          |
+| ---------------------- | ------------------ |
+| main (unreleased)      | :white_check_mark: |
+| < 1.0                  | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Please **do not** open a public issue for security problems. Instead, report them privately by opening a GitHub Security Advisory at:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+https://github.com/mhklogs/AatendenceAPP/security/advisories/new
+
+We aim to acknowledge reports within 48 hours and to ship a fix as soon as the impact is understood.
+
+## Notes
+- This app stores data locally in SQLite; passwords are kept on-device.
+- No external services or network permissions are used by the app.

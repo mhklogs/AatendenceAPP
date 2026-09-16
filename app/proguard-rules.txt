@@ -1,0 +1,4 @@
+# Attendance App - ProGuard rules
+# This sample keeps line numbers for readable crash reports.
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
