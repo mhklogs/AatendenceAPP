@@ -7,7 +7,7 @@
    <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="250dp"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:weightSum="1" >
 
         <RadioButton
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:focusable="false"
 			android:focusableInTouchMode="false"
-            android:text="P" />
+            android:text="Present" />
 
         <RadioButton
             android:id="@+id/AbsentradioButton"
@@ -24,7 +24,23 @@
             android:layout_height="wrap_content"
             android:focusable="false"
 			android:focusableInTouchMode="false"
-            android:text="A" />
+            android:text="Absent" />
+
+        <RadioButton
+            android:id="@+id/LateradioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+			android:focusableInTouchMode="false"
+            android:text="Late" />
+
+        <RadioButton
+            android:id="@+id/LeaveRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+			android:focusableInTouchMode="false"
+            android:text="Excused (Leave)" />
 
         <Button
             android:id="@+id/attendanceSubmitButton"

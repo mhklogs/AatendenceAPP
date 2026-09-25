@@ -17,7 +17,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 
 	// All Static variables
 	// Database Version
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	// Database Name
 	private static final String DATABASE_NAME = "Attendance";
@@ -56,6 +56,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	private static final String KEY_SESSION_ID = "attendance_session_id";
 	private static final String KEY_ATTENDANCE_STUDENT_ID = "attendance_student_id";
 	private static final String KEY_ATTENDANCE_STATUS = "attendance_status";
+	private static final String KEY_ATTENDANCE_MARKED_AT = "attendance_marked_at";
 
 
 	public DBAdapter(Context context) {
@@ -101,7 +102,8 @@ public class DBAdapter extends SQLiteOpenHelper {
 		String queryAttendance="CREATE TABLE "+ ATTENDANCE_TABLE +" (" +
 				KEY_SESSION_ID + " INTEGER, " +
 				KEY_ATTENDANCE_STUDENT_ID + " INTEGER, " +
-				KEY_ATTENDANCE_STATUS + " TEXT " + ")";
+				KEY_ATTENDANCE_STATUS + " TEXT, " +
+				KEY_ATTENDANCE_MARKED_AT + " INTEGER " + ")";
 		Log.d("queryAttendance",queryAttendance );
 
 
@@ -122,55 +124,11 @@ public class DBAdapter extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-		String queryFaculty="CREATE TABLE "+ FACULTY_INFO_TABLE +" (" +
-				KEY_FACULTY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				KEY_FACULTY_FIRSTNAME + " TEXT, " + 
-				KEY_FACULTY_LASTNAME + " TEXT, " +
-				KEY_FACULTY_MO_NO + " TEXT, " +
-				KEY_FACULTY_ADDRESS + " TEXT," +
-				KEY_FACULTY_USERNAME + " TEXT," +
-				KEY_FACULTY_PASSWORD + " TEXT " + ")";
-		Log.d("queryFaculty",queryFaculty);
-
-
-		String queryStudent="CREATE TABLE "+ STUDENT_INFO_TABLE +" (" +
-				KEY_STUDENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				KEY_STUDENT_FIRSTNAME + " TEXT, " + 
-				KEY_STUDENT_LASTNAME + " TEXT, " +
-				KEY_STUDENT_MO_NO + " TEXT, " +
-				KEY_STUDENT_ADDRESS + " TEXT," +
-				KEY_STUDENT_DEPARTMENT + " TEXT," +
-				KEY_STUDENT_CLASS + " TEXT " + ")";
-		Log.d("queryStudent",queryStudent );
-
-
-		String queryAttendanceSession="CREATE TABLE "+ ATTENDANCE_SESSION_TABLE +" (" +
-				KEY_ATTENDANCE_SESSION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				KEY_ATTENDANCE_SESSION_FACULTY_ID + " INTEGER, " + 
-				KEY_ATTENDANCE_SESSION_DEPARTMENT + " TEXT, " +
-				KEY_ATTENDANCE_SESSION_CLASS + " TEXT, " +
-				KEY_ATTENDANCE_SESSION_DATE + " TEXT," +
-				KEY_ATTENDANCE_SESSION_SUBJECT + " TEXT" +")";
-		Log.d("queryAttendanceSession",queryAttendanceSession );
-
-
-		String queryAttendance="CREATE TABLE "+ ATTENDANCE_TABLE +" (" +
-				KEY_SESSION_ID + " INTEGER, " +
-				KEY_ATTENDANCE_STUDENT_ID + " INTEGER, " +
-				KEY_ATTENDANCE_STATUS + " TEXT " + ")";
-		Log.d("queryAttendance",queryAttendance );
-
-		try
-		{
-			db.execSQL(queryFaculty);
-			db.execSQL(queryStudent);
-			db.execSQL(queryAttendanceSession);
-			db.execSQL(queryAttendance);
-		}
-		catch (Exception e) {
+		try {
+			db.execSQL("ALTER TABLE attendance_table ADD COLUMN " + KEY_ATTENDANCE_MARKED_AT + " INTEGER");
+		} catch (Exception e) {
 			e.printStackTrace();
-			Log.e("Exception", e.getMessage());
-		}		
+		}
 	}
 
 	//facult crud
@@ -414,10 +372,17 @@ public class DBAdapter extends SQLiteOpenHelper {
 	public void addNewAttendance(AttendanceBean attendanceBean) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
-		String query = "INSERT INTO attendance_table values ("+ 
+		// Avoid duplicate rows for same session + student: delete existing first
+		db.delete(ATTENDANCE_TABLE,
+				KEY_SESSION_ID + "=? AND " + KEY_ATTENDANCE_STUDENT_ID + "=?",
+				new String[] { String.valueOf(attendanceBean.getAttendance_session_id()),
+						String.valueOf(attendanceBean.getAttendance_student_id()) });
+
+		String query = "INSERT INTO attendance_table values ("+
 				attendanceBean.getAttendance_session_id()+", "+
 				attendanceBean.getAttendance_student_id()+", '"+
-				attendanceBean.getAttendance_status()+"')";
+				attendanceBean.getAttendance_status()+"', "+
+				System.currentTimeMillis()+")";
 		Log.d("query", query);
 		db.execSQL(query);
 		db.close();
@@ -451,6 +416,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 				attendanceBean.setAttendance_session_id(Integer.parseInt(cursor1.getString(0)));
 				attendanceBean.setAttendance_student_id(Integer.parseInt(cursor1.getString(1)));
 				attendanceBean.setAttendance_status(cursor1.getString(2));
+				attendanceBean.setAttendance_marked_at(cursor1.getLong(3));
 				list.add(attendanceBean);
 
 			}while(cursor1.moveToNext());
@@ -483,6 +449,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 						attendanceBean.setAttendance_session_id(Integer.parseInt(cursor1.getString(0)));
 						attendanceBean.setAttendance_student_id(Integer.parseInt(cursor1.getString(1)));
 						attendanceBean.setAttendance_status(cursor1.getString(2));
+						attendanceBean.setAttendance_marked_at(cursor1.getLong(3));
 						list.add(attendanceBean);
 
 					}while(cursor1.moveToNext());
@@ -524,32 +491,68 @@ public class DBAdapter extends SQLiteOpenHelper {
 
 			}while(cursor.moveToNext());
 		}
+return list;
+	}
+
+	// Attendance stats per student: present/monthly totals
+	public int[] getAttendanceStatsForStudent(int studentId) {
+		int[] stats = new int[5]; // [present, absent, late, leave, total]
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(
+			"SELECT attendance_status, COUNT(*) FROM attendance_table WHERE attendance_student_id=" + studentId + " GROUP BY attendance_status",
+			null);
+		int total = 0;
+		if (cursor.moveToFirst()) {
+			do {
+				String status = cursor.getString(0);
+				int count = cursor.getInt(1);
+				total += count;
+				if ("P".equalsIgnoreCase(status)) stats[0] = count;
+				else if ("A".equalsIgnoreCase(status)) stats[1] = count;
+				else if ("L".equalsIgnoreCase(status)) stats[2] = count;
+				else if ("E".equalsIgnoreCase(status)) stats[3] = count;
+			} while (cursor.moveToNext());
+		}
+		stats[4] = total;
+		return stats;
+	}
+
+	public boolean isSessionDuplicate(AttendanceSessionBean session) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		String query = "SELECT COUNT(*) FROM attendance_session_table WHERE attendance_session_faculty_id=" +
+				session.getAttendance_session_faculty_id() +
+				" AND attendance_session_department='" + session.getAttendance_session_department() + "'" +
+				" AND attendance_session_class='" + session.getAttendance_session_class() + "'" +
+				" AND attendance_session_date='" + session.getAttendance_session_date() + "'" +
+				" AND attendance_session_subject='" + session.getAttendance_session_subject() + "'";
+		Cursor cursor = db.rawQuery(query, null);
+		int count = 0;
+		if (cursor.moveToFirst()) count = cursor.getInt(0);
+		return count > 0;
+	}
+
+	// Faculty picked subjects/departments available
+	public ArrayList<String> getAllDepartments() {
+		ArrayList<String> list = new ArrayList<String>();
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery("SELECT DISTINCT " + KEY_STUDENT_DEPARTMENT + " FROM " + STUDENT_INFO_TABLE, null);
+		if (cursor.moveToFirst()) {
+			do { list.add(cursor.getString(0)); } while (cursor.moveToNext());
+		}
+		if (list.isEmpty()) list.add("cse");
 		return list;
 	}
-	/*public ArrayList<AttendanceBean> getAllAttendanceBySessionID(int sessionId)
-	{
-		ArrayList<AttendanceBean> list = new ArrayList<AttendanceBean>();
 
+	public ArrayList<String> getAllClasses() {
+		ArrayList<String> list = new ArrayList<String>();
 		SQLiteDatabase db = this.getWritableDatabase();
-		String query = "SELECT * FROM attendance_table where attendance_session_id=" + sessionId;
-		Cursor cursor = db.rawQuery(query, null);
-
-		if(!cursor.moveToFirst()) 
-		{
-			do{
-				AttendanceBean attendanceBean = new AttendanceBean();
-				attendanceBean.setAttendance_session_id(Integer.parseInt(cursor.getString(0)));
-				attendanceBean.setAttendance_student_id(Integer.parseInt(cursor.getString(1)));
-				attendanceBean.setAttendance_status(cursor.getString(2));
-				list.add(attendanceBean);
-
-			}while(cursor.moveToNext());
+		Cursor cursor = db.rawQuery("SELECT DISTINCT " + KEY_STUDENT_CLASS + " FROM " + STUDENT_INFO_TABLE, null);
+		if (cursor.moveToFirst()) {
+			do { list.add(cursor.getString(0)); } while (cursor.moveToNext());
 		}
+		if (list.isEmpty()) { list.add("SE"); list.add("TE"); list.add("BE"); }
 		return list;
-	}*/
-	
-	
-
+	}
 
 	// Creating Tables
 	/*@Override

@@ -172,6 +172,12 @@ public class AddAttandanceSessionActivity<AddAttandanceActivity> extends Activit
 				attendanceSessionBean.setAttendance_session_subject(subject);
 
 				DBAdapter dbAdapter = new DBAdapter(AddAttandanceSessionActivity.this);
+				if (dbAdapter.isSessionDuplicate(attendanceSessionBean)) {
+					Toast.makeText(AddAttandanceSessionActivity.this,
+							"Session already exists for this class on this date.",
+							Toast.LENGTH_LONG).show();
+					return;
+				}
 				int sessionId=	dbAdapter.addAttendanceSession(attendanceSessionBean);
 
 				ArrayList<StudentBean> studentBeanList=dbAdapter.getAllStudentByBranchYear(branch, year); 

@@ -79,9 +79,13 @@ public class AddAttendanceActivity extends Activity {
 				RadioGroup radioGroup;
 				RadioButton present;
 				RadioButton absent;
+				RadioButton late;
+				RadioButton leave;
 				radioGroup = (RadioGroup) dialog.findViewById(R.id.radioGroup);
 				present=(RadioButton)dialog.findViewById(R.id.PresentradioButton);
 				absent=(RadioButton)dialog.findViewById(R.id.AbsentradioButton);
+				late=(RadioButton)dialog.findViewById(R.id.LateradioButton);
+				leave=(RadioButton)dialog.findViewById(R.id.LeaveRadioButton);
 				radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 					@Override
@@ -92,6 +96,12 @@ public class AddAttendanceActivity extends Activity {
 						} else if(checkedId == R.id.AbsentradioButton) {
 
 							status = "A";
+						} else if(checkedId == R.id.LateradioButton) {
+
+							status = "L";
+						} else if(checkedId == R.id.LeaveRadioButton) {
+
+							status = "E";
 						} else {
 						}
 					}

@@ -3,21 +3,12 @@ package com.android.attendance.activity;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.attendance.bean.AttendanceBean;
-import com.android.attendance.bean.FacultyBean;
-import com.android.attendance.bean.StudentBean;
 import com.android.attendance.context.ApplicationContext;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
@@ -36,87 +27,56 @@ public class ViewAttendancePerStudentActivity extends Activity {
 
 		listView=(ListView)findViewById(R.id.listview);
 		final ArrayList<String> attendanceList = new ArrayList<String>();
-		attendanceList.add("Present Count Per Student");
+		attendanceList.add("Student Attendance Report (P/A/L/E + %)");
+
 		attendanceBeanList=((ApplicationContext)ViewAttendancePerStudentActivity.this.getApplicationContext()).getAttendanceBeanList();
 
 		for(AttendanceBean attendanceBean : attendanceBeanList)
 		{
 			String users = "";
-			
-				DBAdapter dbAdapter = new DBAdapter(ViewAttendancePerStudentActivity.this);
-				StudentBean studentBean =dbAdapter.getStudentById(attendanceBean.getAttendance_student_id());
-				users = attendanceBean.getAttendance_student_id()+".     "+studentBean.getStudent_firstname()+","+studentBean.getStudent_lastname()+"                  "+attendanceBean.getAttendance_session_id();
-				attendanceList.add(users);
+			int studentId = attendanceBean.getAttendance_student_id();
+			int presentCount = attendanceBean.getAttendance_session_id();
+
+			DBAdapter dbAdapter = new DBAdapter(ViewAttendancePerStudentActivity.this);
+			StudentBeanWrapper wrapper = getStudentAndStats(attendanceBean);
+
+			double pct = wrapper.total == 0 ? 0.0 : (100.0 * wrapper.present / wrapper.total);
+			String flag = pct >= 75.0 ? "OK" : (pct >= 60.0 ? "WARN" : "LOW");
+			users = studentId + ".  " + wrapper.name + "  P:" + wrapper.present
+					+ " A:" + wrapper.absent + " L:" + wrapper.late + " E:" + wrapper.leave
+					+ "  " + (int) Math.round(pct) + "%  [" + flag + "]";
+			attendanceList.add(users);
 		}
 
 		listAdapter = new ArrayAdapter<String>(this, R.layout.view_attendance_list_per_student, R.id.labelAttendancePerStudent, attendanceList);
 		listView.setAdapter( listAdapter ); 
-
-		/*listView.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-			@Override
-			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-					final int position, long arg3) {
-
-
-
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewAttendanceByFacultyActivity.this);
-
-				alertDialogBuilder.setTitle(getTitle()+"decision");
-				alertDialogBuilder.setMessage("Are you sure?");
-
-				alertDialogBuilder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-
-						facultyList.remove(position);
-						listAdapter.notifyDataSetChanged();
-						listAdapter.notifyDataSetInvalidated();   
-
-						dbAdapter.deleteFaculty(facultyBeanList.get(position).getFaculty_id());
-						facultyBeanList=dbAdapter.getAllFaculty();
-
-						for(FacultyBean facultyBean : facultyBeanList)
-						{
-							String users = " FirstName: " + facultyBean.getFaculty_firstname()+"\nLastname:"+facultyBean.getFaculty_lastname();
-							facultyList.add(users);
-							Log.d("users: ", users); 
-
-						}
-						
-					}
-					
-				});
-				alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						// cancel the alert box and put a Toast to the user
-						dialog.cancel();
-						Toast.makeText(getApplicationContext(), "You choose cancel", 
-								Toast.LENGTH_LONG).show();
-					}
-				});
-
-				AlertDialog alertDialog = alertDialogBuilder.create();
-				// show alert
-				alertDialog.show();
-
-
-
-
-
-				return false;
-			}
-		});
-*/
-
-
-
 	}
 
+	private StudentBeanWrapper getStudentAndStats(AttendanceBean bean) {
+		DBAdapter dbLocal = new DBAdapter(ViewAttendancePerStudentActivity.this);
+		StudentBeanWrapper result = new StudentBeanWrapper();
+		com.android.attendance.bean.StudentBean studentBean = dbLocal.getStudentById(bean.getAttendance_student_id());
+		result.name = studentBean.getStudent_firstname() + " " + studentBean.getStudent_lastname();
+		int[] stats = dbLocal.getAttendanceStatsForStudent(bean.getAttendance_student_id());
+		result.present = stats[0];
+		result.absent = stats[1];
+		result.late = stats[2];
+		result.leave = stats[3];
+		result.total = stats[4];
+		return result;
+	}
 
+	private static class StudentBeanWrapper {
+		String name = "";
+		int present = 0;
+		int absent = 0;
+		int late = 0;
+		int leave = 0;
+		int total = 0;
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}

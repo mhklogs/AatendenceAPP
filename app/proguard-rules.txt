@@ -2,3 +2,7 @@
 # This sample keeps line numbers for readable crash reports.
 -keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
+# SQLite bean classes are used via reflection-free direct access,
+# but keep field names intact for safety with R8.
+-keep class com.android.attendance.bean.** { *; }
+-keep class com.android.attendance.db.** { *; }

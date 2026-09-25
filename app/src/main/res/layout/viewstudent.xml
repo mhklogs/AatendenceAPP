@@ -18,7 +18,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="29dp"
         android:text="Select branch"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textColor="@color/onPrimary"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinnerbranchView"
@@ -26,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="14dp" />
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_input_translucent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -35,14 +38,17 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/spinnerbranchView"
         android:text="Select year"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textColor="@color/onPrimary"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinneryearView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_input_translucent" />
 
     <Button
         android:id="@+id/submitButton"

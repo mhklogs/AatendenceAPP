@@ -23,6 +23,7 @@ public class MenuActivity extends Activity {
 	Button viewFaculty;
 	Button logout;
 	Button attendancePerStudent;
+	Button dashboard;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,16 @@ public class MenuActivity extends Activity {
 		viewStudent =(Button)findViewById(R.id.buttonViewstudent);
 		viewFaculty =(Button)findViewById(R.id.buttonviewfaculty);
 		logout =(Button)findViewById(R.id.buttonlogout);
+		dashboard =(Button)findViewById(R.id.dashboardButton);
+
+		dashboard.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent =new Intent(MenuActivity.this,DashboardActivity.class);
+				startActivity(intent);
+			}
+		});
 		
 		addStudent.setOnClickListener(new OnClickListener() {
 

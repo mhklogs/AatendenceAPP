@@ -1,4 +1,4 @@
-# AatendenceAPP — College Attendance System
+# Attendio — College Attendance System
 
 An offline-first **Android attendance management app** built in **Java**. Faculty and admins can register students of a branch/year, create subject sessions, and mark daily attendance that is stored locally in an SQLite database — no server or internet connection required.
 
@@ -10,23 +10,34 @@ An offline-first **Android attendance management app** built in **Java**. Facult
 
 ### Admin Module
 - Add / view **students** and **faculty**
-- Create attendance **sessions** (department + class + subject + date)
-- Mark present / absent roll-call in one screen
-- View attendance **per student**, **per faculty**, and **per class**
+- Create attendance **sessions** (department + class + subject + date) with **duplicate-session prevention**
+- Mark **Present / Absent / Late / Excused** roll-call in one screen
+- View attendance **per student** with live totals and an **at-risk tracker** (<75%)
+- **Dashboard** with student / faculty / session counts, at-risk list, and **one-tap CSV export** (share sheet)
 
 ### Faculty Module
 - Log in with a faculty account
 - Manage students, sessions, and daily attendance
 - Simple dashboard-driven navigation with on-device storage
 
+## 📲 Download the APK
+
+Grab the latest signed release and install it directly on your Android device:
+
+| App | APK | Size |
+|---|---|---|
+| Attendio v2.0 | [**Attendio.apk**](https://android-apps-rho.vercel.app/downloads/Attendio.apk) | ~0.3 MB |
+
+Requires **Android 6.0 (API 23)+**. Allow installation from unknown sources when prompted.
+
 ## 🛠 Tech Stack
 
 | Layer      | Technology                            |
 |------------|---------------------------------------|
 | Language   | Java                                  |
-| UI         | XML layouts + ListViews/Spinners      |
+| UI         | XML layouts + Material platform theme, ListViews/Spinners |
 | Storage    | SQLite via a custom `DBAdapter`       |
-| Build      | Gradle 8.5, Android Gradle Plugin 8.1  |
+| Build      | Gradle 8.8, AGP 8.x, R8 + resource shrinking |
 
 ## 🚀 Getting Started
 
@@ -36,7 +47,7 @@ An offline-first **Android attendance management app** built in **Java**. Facult
 
 ### Run it
 ```bash
-git clone https://github.com/mhklogs/AatendenceAPP.git
+git clone https://github.com/mhklogs/Attendio.git
 ```
 Open the folder in Android Studio and press **Run ▶**. The app works fully offline — data lives in the device's SQLite database.
 
@@ -56,7 +67,7 @@ app/src/main/java/com/android/attendance/
 
 - Export attendance to CSV/PDF
 - Data backup & restore
-- Modern Material UI migration
+- Cloud sync across devices
 
 ## 🤝 Contributing
 Pull requests are welcome. For major changes, open an issue first to discuss your approach.

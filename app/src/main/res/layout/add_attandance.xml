@@ -16,7 +16,9 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="16dp"
         android:text="Select dept"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textColor="@color/onPrimary"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -25,7 +27,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="34dp"
-        android:layout_toRightOf="@+id/textView1" />
+        android:layout_toRightOf="@+id/textView1"
+        android:background="@drawable/bg_input_translucent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -35,21 +38,25 @@
         android:layout_marginTop="34dp"
         android:layout_toLeftOf="@+id/spinner1"
         android:text="Select year"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textColor="@color/onPrimary"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/spinnerSE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/spinneryear"
-        android:layout_below="@+id/spinneryear" />
+        android:layout_below="@+id/spinneryear"
+        android:background="@drawable/bg_input_translucent" />
 
     <Spinner
         android:id="@+id/spinneryear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/spinner1"
-        android:layout_below="@+id/spinner1" />
+        android:layout_below="@+id/spinner1"
+        android:background="@drawable/bg_input_translucent" />
 
     <EditText
         android:id="@+id/DateEditText"
@@ -57,8 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/DateImageButton"
         android:layout_toLeftOf="@+id/spinnerSE"
-        android:background="#ffffff"
-        android:editable="false"
+        android:background="@drawable/bg_input"
+        android:focusable="false"
         android:ems="10" >
 
         <requestFocus />
@@ -77,13 +84,12 @@
 
     <Button
         android:id="@+id/buttonsubmit"
-        style="?android:attr/buttonStyleSmall"
+        style="@style/AttendioButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/DateImageButton"
         android:layout_marginTop="22dp"
-        android:background="@drawable/roundedbutton"
         android:text="Add Attendance" />
 
     <TextView
@@ -94,27 +100,27 @@
         android:layout_alignTop="@+id/spinnerSE"
         android:layout_marginTop="20dp"
         android:text="Subject"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textColor="@color/onPrimary"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/viewTotalAttendanceButton"
-        style="?android:attr/buttonStyleSmall"
+        style="@style/AttendioButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:background="@drawable/roundedbutton"
         android:text="View Total Attendance" />
 
     <Button
         android:id="@+id/viewAttendancebutton"
-        style="?android:attr/buttonStyleSmall"
+        style="@style/AttendioButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/viewTotalAttendanceButton"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="35dp"
-        android:background="@drawable/roundedbutton"
+        android:layout_marginBottom="12dp"
         android:text="View Attendance" />
 
 </RelativeLayout>
