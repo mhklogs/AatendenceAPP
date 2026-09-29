@@ -26,7 +26,7 @@ Grab the latest signed release and install it directly on your Android device:
 
 | App | APK | Size |
 |---|---|---|
-| Attendio v2.0 | [**Attendio.apk**](https://android-apps-rho.vercel.app/downloads/Attendio.apk) | ~0.3 MB |
+| Attendio v2.0 | [**AttendanceSystem.apk**](https://android-apps-rho.vercel.app/downloads/AttendanceSystem.apk) | ~0.14 MB |
 
 Requires **Android 6.0 (API 23)+**. Allow installation from unknown sources when prompted.
 
