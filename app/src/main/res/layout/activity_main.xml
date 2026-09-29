@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="28dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,14 +20,24 @@
             android:orientation="vertical"
             android:gravity="center">
 
+            <ImageView
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:background="@drawable/bg_logo_badge"
+                android:contentDescription="@string/app_name"
+                android:padding="24dp"
+                android:src="@drawable/ic_app_check"/>
+
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
                 android:text="@string/app_name"
                 android:textColor="@color/onPrimary"
                 android:textSize="44sp"
                 android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
                 android:letterSpacing="0.02" />
 
             <TextView
@@ -36,7 +46,17 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/tagline"
                 android:textColor="#C7D2FE"
-                android:textSize="16sp" />
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:text="@string/features"
+                android:textColor="#E0E7FF"
+                android:textSize="15sp"
+                android:lineSpacingExtra="6dp"/>
         </LinearLayout>
 
         <Button
@@ -45,7 +65,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="Get Started" />
+            android:text="@string/get_started"
+            android:drawableStart="@drawable/ic_logout_white"
+            android:textAllCaps="false"
+            android:letterSpacing="0.01" />
 
     </LinearLayout>
 </ScrollView>

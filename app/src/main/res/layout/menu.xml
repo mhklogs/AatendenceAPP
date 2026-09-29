@@ -5,89 +5,93 @@
     android:layout_height="match_parent"
     android:background="@drawable/clg"
     android:fillViewport="true"
-    tools:context=".MainActivity">
+    tools:context=".MenuActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="28dp"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:paddingBottom="28dp">
 
         <TextView
             android:id="@+id/menuTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal"
             android:text="@string/app_name"
             android:textColor="@color/onPrimary"
-            android:textSize="26sp"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif-black"
             android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="22dp"
+            android:text="@string/menu_subtitle"
+            android:textColor="#C7D2FE"
+            android:textSize="14sp"/>
 
         <Button
             android:id="@+id/buttonaddstudent"
+            style="@style/AttendioMenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/menuTitle"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/roundedbutton"
-            android:text="Add Student" />
+            android:drawableStart="@drawable/ic_add_student"
+            android:text="@string/menu_add_student" />
 
         <Button
             android:id="@+id/buttonViewstudent"
+            style="@style/AttendioMenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buttonaddstudent"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/roundedbutton"
-            android:text="View Students" />
+            android:drawableStart="@drawable/ic_view_students"
+            android:text="@string/menu_view_students" />
 
         <Button
             android:id="@+id/buttonaddfaculty"
+            style="@style/AttendioMenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buttonViewstudent"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/roundedbutton"
-            android:text="Add Faculty" />
+            android:drawableStart="@drawable/ic_add_faculty"
+            android:text="@string/menu_add_faculty" />
 
         <Button
             android:id="@+id/buttonviewfaculty"
+            style="@style/AttendioMenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buttonaddfaculty"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/roundedbutton"
-            android:text="View Faculty" />
+            android:drawableStart="@drawable/ic_view_faculty"
+            android:text="@string/menu_view_faculty" />
 
         <Button
             android:id="@+id/attendancePerStudentButton"
+            style="@style/AttendioMenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buttonviewfaculty"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/roundedbutton"
-            android:text="Attendance Per Student" />
+            android:drawableStart="@drawable/ic_bar_chart"
+            android:text="@string/menu_per_student" />
 
         <Button
             android:id="@+id/dashboardButton"
+            style="@style/AttendioMenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/attendancePerStudentButton"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/roundedbutton"
-            android:text="Attendance Dashboard" />
+            android:drawableStart="@drawable/ic_dashboard"
+            android:text="@string/menu_dashboard" />
 
         <Button
             android:id="@+id/buttonlogout"
+            style="@style/AttendioMenuButton.Outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/dashboardButton"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_button_outlined"
-            android:text="Logout" />
+            android:drawableStart="@drawable/ic_logout"
+            android:text="@string/menu_logout" />
 
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>

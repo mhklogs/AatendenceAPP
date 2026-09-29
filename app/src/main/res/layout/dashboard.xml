@@ -3,21 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/background">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Attendance Dashboard"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/textPrimary"
-        android:layout_marginBottom="12dp"/>
+        android:background="@drawable/clg"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_title"
+            android:textColor="@color/onPrimary"
+            android:textSize="26sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/dashboard_subtitle"
+            android:textColor="#C7D2FE"
+            android:textSize="14sp"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="12dp"
         android:baselineAligned="false">
 
         <LinearLayout
@@ -26,16 +48,33 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="@drawable/bg_stat_card"
-            android:padding="14dp">
+            android:padding="14dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/students"
+                android:src="@drawable/ic_stat_students"/>
 
             <TextView
                 android:id="@+id/tvStudentCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/textPrimary"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:text="Students: 0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/students"
+                android:textColor="@color/textSecondary"
+                android:textSize="12sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -45,16 +84,33 @@
             android:orientation="vertical"
             android:background="@drawable/bg_stat_card"
             android:padding="14dp"
-            android:layout_marginStart="8dp">
+            android:layout_marginStart="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/faculty"
+                android:src="@drawable/ic_stat_faculty"/>
 
             <TextView
                 android:id="@+id/tvFacultyCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/textPrimary"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:text="Faculty: 0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/faculty"
+                android:textColor="@color/textSecondary"
+                android:textSize="12sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -64,16 +120,33 @@
             android:orientation="vertical"
             android:background="@drawable/bg_stat_card"
             android:padding="14dp"
-            android:layout_marginStart="8dp">
+            android:layout_marginStart="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/sessions"
+                android:src="@drawable/ic_stat_sessions"/>
 
             <TextView
                 android:id="@+id/tvSessionCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/textPrimary"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:text="Sessions: 0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/sessions"
+                android:textColor="@color/textSecondary"
+                android:textSize="12sp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -84,8 +157,10 @@
         android:textColor="@color/warning"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="16dp"
-        android:text="At-risk students: 0"/>
+        android:layout_marginEnd="18dp"
+        android:text="@string/risk_initial"/>
 
     <ListView
         android:id="@+id/lvRisk"
@@ -93,18 +168,21 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginTop="8dp"
-        android:background="@color/surface"
+        android:background="@android:color/transparent"
         android:divider="@android:color/transparent"
         android:dividerHeight="8dp"
-        android:padding="8dp"/>
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"/>
 
     <Button
         android:id="@+id/btnExportCSV"
-        style="@style/AttendioButton"
+        style="@style/AttendioButton.Outlined"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/roundedbutton"
-        android:text="Export / Share CSV Report"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/export_csv" />
 
 </LinearLayout>

@@ -14,42 +14,54 @@
         android:gravity="center_horizontal"
         android:padding="24dp">
 
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/bg_logo_badge"
+            android:contentDescription="@string/app_name"
+            android:padding="18dp"
+            android:src="@drawable/ic_app_check"/>
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Welcome back"
+            android:layout_marginTop="20dp"
+            android:text="@string/welcome_back"
             android:textColor="@color/onPrimary"
             android:textSize="32sp"
+            android:fontFamily="sans-serif-black"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:text="Log in as"
+            android:layout_marginTop="28dp"
+            android:text="@string/log_in_as"
             android:textColor="#C7D2FE"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.06"/>
 
         <Spinner
             android:id="@+id/spinnerloginas"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
             android:background="@drawable/bg_input_translucent"
             android:layout_marginTop="8dp"
-            android:paddingLeft="16dp" />
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
 
         <EditText
             android:id="@+id/editTextusername"
-            style="@style/AttendioEditText"
+            style="@style/AttendioEditTextOnDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:ems="10"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="textPersonName"
             android:backgroundTint="@null">
 
@@ -58,12 +70,12 @@
 
         <EditText
             android:id="@+id/editTextpassword"
-            style="@style/AttendioEditText"
+            style="@style/AttendioEditTextOnDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
 
         <Button
@@ -71,8 +83,10 @@
             style="@style/AttendioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Login" />
+            android:layout_marginTop="26dp"
+            android:text="@string/login"
+            android:drawableStart="@drawable/ic_acc_login"
+            android:letterSpacing="0.01" />
 
     </LinearLayout>
 </ScrollView>
