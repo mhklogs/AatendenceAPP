@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light icons on the dark navigation bar in dark theme. -->
+    <bool name="attendio_light_nav_bar">false</bool>
+</resources>

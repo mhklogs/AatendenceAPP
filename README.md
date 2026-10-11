@@ -8,6 +8,9 @@ An offline-first **Android attendance management app** built in **Java**. Facult
 
 ## ✨ Features
 
+- **Polished Material 3 UI** — card-grid launcher, floating-label forms, stat
+  dashboard and an automatic **dark mode** that follows the system setting
+
 ### Admin Module
 - Add / view **students** and **faculty**
 - Create attendance **sessions** (department + class + subject + date) with **duplicate-session prevention**
@@ -35,7 +38,7 @@ Requires **Android 6.0 (API 23)+**. Allow installation from unknown sources when
 | Layer      | Technology                            |
 |------------|---------------------------------------|
 | Language   | Java                                  |
-| UI         | XML layouts + Material platform theme, ListViews/Spinners |
+| UI         | XML layouts + Material Components 3 (`Theme.Attendio`), AppCompat, light & dark |
 | Storage    | SQLite via a custom `DBAdapter`       |
 | Build      | Gradle 8.8, AGP 8.x, R8 + resource shrinking |
 

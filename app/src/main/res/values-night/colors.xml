@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme palette. Every @color reference adapts automatically. -->
+    <color name="primary">#818CF8</color>
+    <color name="primaryDark">#4F46E5</color>
+    <color name="primaryLight">#252A4A</color>
+    <color name="primaryContainer">#312E81</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="onPrimaryContainer">#E0E7FF</color>
+
+    <color name="secondary">#22D3EE</color>
+    <color name="secondaryDark">#06B6D4</color>
+    <color name="secondaryContainer">#164E63</color>
+    <color name="onSecondary">#06202B</color>
+    <color name="onSecondaryContainer">#CFFAFE</color>
+
+    <color name="tertiary">#A78BFA</color>
+    <color name="tertiaryContainer">#4C1D95</color>
+    <color name="onTertiary">#1E1B4B</color>
+    <color name="onTertiaryContainer">#EDE9FE</color>
+
+    <color name="surface">#171A21</color>
+    <color name="surfaceVariant">#1F232B</color>
+    <color name="surfaceContainer">#1B1F26</color>
+    <color name="background">#0F1115</color>
+    <color name="onSurface">#E6E8EF</color>
+    <color name="onSurfaceVariant">#C3C9D6</color>
+    <color name="outline">#3A4150</color>
+    <color name="outlineVariant">#2A2F3A</color>
+
+    <color name="textPrimary">#E6E8EF</color>
+    <color name="textSecondary">#9BA3B4</color>
+    <color name="divider">#2A2F3A</color>
+
+    <color name="success">#4ADE80</color>
+    <color name="successContainer">#14532D</color>
+    <color name="warning">#FBBF24</color>
+    <color name="warningContainer">#78350F</color>
+    <color name="danger">#F87171</color>
+    <color name="dangerContainer">#7F1D1D</color>
+    <color name="info">#38BDF8</color>
+    <color name="infoContainer">#0C4A6E</color>
+
+    <color name="screenGradientStart">#312E81</color>
+    <color name="screenGradientEnd">#0B1020</color>
+
+    <color name="statusBar">#0B1020</color>
+    <color name="statusBarHero">#0B1020</color>
+</resources>

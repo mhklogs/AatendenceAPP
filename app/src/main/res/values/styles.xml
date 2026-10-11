@@ -4,7 +4,7 @@
         Attendio design system — Material 3.
         A single light theme tuned to the indigo/cyan brand palette.
     -->
-    <style name="AppBaseTheme" parent="Theme.Material3.Light" />
+    <style name="AppBaseTheme" parent="Theme.Material3.DayNight" />
 
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- Brand colors -->
@@ -39,7 +39,7 @@
         <item name="android:statusBarColor">@color/statusBar</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="android:navigationBarColor">@color/surface</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">@bool/attendio_light_nav_bar</item>
 
         <!-- Typography -->
         <item name="android:fontFamily">sans-serif</item>
