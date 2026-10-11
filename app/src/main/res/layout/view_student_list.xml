@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/AttendioListRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:background="@drawable/bg_row_icon"
         android:contentDescription="@string/students"
-        android:padding="9dp"
-        android:src="@drawable/ic_view_students" />
+        android:padding="10dp"
+        android:src="@drawable/ic_view_students"
+        app:tint="@color/primary" />
 
     <TextView
         android:id="@+id/label"
@@ -22,4 +24,10 @@
         android:textColor="@color/textPrimary"
         android:textSize="15sp"
         android:lineSpacingExtra="2dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_chevron_right" />
 </LinearLayout>

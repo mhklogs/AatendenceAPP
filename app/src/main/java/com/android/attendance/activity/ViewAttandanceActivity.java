@@ -3,7 +3,7 @@ package com.android.attendance.activity;
 import com.example.androidattendancesystem.R;
 
 import android.os.Bundle;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.Menu;
@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class ViewAttandanceActivity extends Activity {
+public class ViewAttandanceActivity extends AppCompatActivity {
 
 	Spinner spinnerbranch,spinneryear;
 	String userrole,branch,year;

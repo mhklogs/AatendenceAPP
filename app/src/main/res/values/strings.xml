@@ -7,6 +7,7 @@
     <string name="tagline">Attendance, made simple</string>
     <string name="get_started">Get Started</string>
     <string name="welcome_back">Welcome back</string>
+    <string name="login_subtitle">Sign in to your attendance workspace</string>
     <string name="log_in_as">LOG IN AS</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -31,6 +32,23 @@
     <!-- Shared -->
     <string name="cancel">Cancel</string>
     <string name="empty" translatable="false"></string>
+    <string name="menu_section_manage">Manage records</string>
+    <string name="menu_section_reports">Reports</string>
+    <string name="no_records">Nothing to show yet</string>
+    <string name="no_records_hint">Records you add will appear here.</string>
+
+    <!-- Attendance dialog -->
+    <string name="mark_attendance_title">Mark attendance</string>
+    <string name="mark_attendance_hint">Choose a status for this student.</string>
+    <string name="att_present">Present</string>
+    <string name="att_absent">Absent</string>
+    <string name="att_late">Late</string>
+    <string name="att_excused">Excused (Leave)</string>
+    <string name="att_submit">Save status</string>
+
+    <!-- Dashboard -->
+    <string name="at_risk_heading">Students below 75%</string>
+    <string name="dashboard_empty">No at-risk students right now.</string>
 
     <!-- Field labels -->
     <string name="field_first_name">First name</string>

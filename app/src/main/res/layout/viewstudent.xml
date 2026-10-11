@@ -32,43 +32,48 @@
             android:layout_marginBottom="18dp"
             android:text="@string/view_students_subtitle" />
 
-        <LinearLayout
-            style="@style/AttendioPanel"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Attendio.Card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_branch" />
-
-            <Spinner
-                android:id="@+id/spinnerbranchView"
-                style="@style/AttendioSpinner"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp" />
+                android:orientation="vertical">
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_year" />
+                <TextView
+                    style="@style/AttendioLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/field_branch" />
 
-            <Spinner
-                android:id="@+id/spinneryearView"
-                style="@style/AttendioSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinnerbranchView"
+                    style="@style/AttendioSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-        <Button
+                <TextView
+                    style="@style/AttendioLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/field_year" />
+
+                <Spinner
+                    android:id="@+id/spinneryearView"
+                    style="@style/AttendioSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/submitButton"
-            style="@style/AttendioButton"
+            style="@style/Widget.Attendio.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"

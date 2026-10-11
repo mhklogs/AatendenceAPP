@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,111 +31,122 @@
             android:layout_marginBottom="18dp"
             android:text="@string/session_subtitle" />
 
-        <LinearLayout
-            style="@style/AttendioPanel"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Attendio.Card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_branch" />
-
-            <Spinner
-                android:id="@+id/spinner1"
-                style="@style/AttendioSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp" />
-
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_year" />
-
-            <Spinner
-                android:id="@+id/spinneryear"
-                style="@style/AttendioSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp" />
-
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_subject" />
-
-            <Spinner
-                android:id="@+id/spinnerSE"
-                style="@style/AttendioSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp" />
-
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_date" />
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/DateEditText"
-                    style="@style/AttendioEditText"
-                    android:layout_width="0dp"
+                <TextView
+                    style="@style/AttendioLabel"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:clickable="false"
-                    android:cursorVisible="false"
-                    android:focusable="false"
-                    android:ems="10"
-                    android:hint="@string/field_date" />
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/field_branch" />
 
-                <ImageButton
-                    android:id="@+id/DateImageButton"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/bg_row_icon"
-                    android:contentDescription="@string/field_date"
-                    android:padding="14dp"
-                    android:cropToPadding="true"
-                    android:src="@drawable/calendar_icon" />
+                <Spinner
+                    android:id="@+id/spinner1"
+                    style="@style/AttendioSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/AttendioLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/field_year" />
+
+                <Spinner
+                    android:id="@+id/spinneryear"
+                    style="@style/AttendioSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/AttendioLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/field_subject" />
+
+                <Spinner
+                    android:id="@+id/spinnerSE"
+                    style="@style/AttendioSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/AttendioLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/field_date" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Attendio.TextInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/field_date">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/DateEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageButton
+                        android:id="@+id/DateImageButton"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_row_icon"
+                        android:contentDescription="@string/field_date"
+                        android:padding="14dp"
+                        android:cropToPadding="true"
+                        android:src="@drawable/calendar_icon"
+                        app:tint="@color/primary" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonsubmit"
-            style="@style/AttendioButton"
+            style="@style/Widget.Attendio.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="@string/session_action" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/viewAttendancebutton"
-            style="@style/AttendioButton.Outlined"
+            style="@style/Widget.Attendio.Button.Outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/session_view" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/viewTotalAttendanceButton"
-            style="@style/AttendioButton.Outlined"
+            style="@style/Widget.Attendio.Button.Outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

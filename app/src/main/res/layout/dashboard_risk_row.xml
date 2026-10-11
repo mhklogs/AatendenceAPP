@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/AttendioListRow"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_row_icon"
         android:contentDescription="@string/risk_initial"
-        android:tint="@color/warning"
-        android:src="@drawable/ic_bar_chart" />
+        android:padding="8dp"
+        android:src="@drawable/ic_bar_chart"
+        app:tint="@color/warning" />
 
     <TextView
         android:id="@+id/tvRisk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="14dp"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/textPrimary"
         android:textSize="14sp" />

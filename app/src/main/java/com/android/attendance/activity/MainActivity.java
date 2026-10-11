@@ -3,14 +3,14 @@ package com.android.attendance.activity;
 import com.example.androidattendancesystem.R;
 
 import android.os.Bundle;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
 	Button start;
 

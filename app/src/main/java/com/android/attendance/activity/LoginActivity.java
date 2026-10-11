@@ -1,6 +1,6 @@
 package com.android.attendance.activity;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -22,7 +22,7 @@ import com.android.attendance.context.ApplicationContext;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
 
 	Button login;
 	EditText username,password;

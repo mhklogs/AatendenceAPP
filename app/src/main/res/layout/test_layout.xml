@@ -1,53 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface"
+    android:padding="22dp">
 
-   <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="250dp"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:weightSum="1" >
+        android:text="@string/mark_attendance_title"
+        android:textColor="@color/textPrimary"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold" />
 
-        <RadioButton
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="@string/mark_attendance_hint"
+        android:textColor="@color/textSecondary"
+        android:textSize="13sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/PresentradioButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="false"
-			android:focusableInTouchMode="false"
-            android:text="Present" />
+            android:focusableInTouchMode="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/att_present" />
 
-        <RadioButton
+        <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/AbsentradioButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="false"
-			android:focusableInTouchMode="false"
-            android:text="Absent" />
+            android:focusableInTouchMode="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/att_absent" />
 
-        <RadioButton
+        <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/LateradioButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="false"
-			android:focusableInTouchMode="false"
-            android:text="Late" />
+            android:focusableInTouchMode="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/att_late" />
 
-        <RadioButton
+        <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/LeaveRadioButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="false"
-			android:focusableInTouchMode="false"
-            android:text="Excused (Leave)" />
-
-        <Button
-            android:id="@+id/attendanceSubmitButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/roundedbutton"
-            android:text="Submit" />
-
+            android:focusableInTouchMode="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/att_excused" />
     </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/attendanceSubmitButton"
+        style="@style/Widget.Attendio.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/att_submit" />
 </LinearLayout>

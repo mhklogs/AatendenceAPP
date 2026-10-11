@@ -2,7 +2,7 @@ package com.android.attendance.activity;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import com.android.attendance.bean.StudentBean;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
-public class ViewStudentByBranchYear extends Activity {
+public class ViewStudentByBranchYear extends AppCompatActivity {
 
 	ArrayList<StudentBean> studentBeanList;
 	private ListView listView ;  

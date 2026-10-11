@@ -1,112 +1,192 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--
-        Attendio themes.
-        Base application theme, dependent on API level.
+        Attendio design system — Material 3.
+        A single light theme tuned to the indigo/cyan brand palette.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Material.Light" />
+    <style name="AppBaseTheme" parent="Theme.Material3.Light" />
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <item name="android:colorPrimary">@color/primary</item>
-        <item name="android:colorPrimaryDark">@color/primaryDark</item>
-        <item name="android:colorAccent">@color/secondary</item>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- Brand colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <item name="colorPrimaryContainer">@color/primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/onPrimaryContainer</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <item name="colorSecondaryContainer">@color/secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/onSecondaryContainer</item>
+        <item name="colorTertiary">@color/tertiary</item>
+        <item name="colorOnTertiary">@color/onTertiary</item>
+        <item name="colorTertiaryContainer">@color/tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/onTertiaryContainer</item>
+
+        <!-- Surfaces -->
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/onSurface</item>
+        <item name="colorSurfaceVariant">@color/surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/onSurfaceVariant</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outlineVariant</item>
+        <item name="colorError">@color/danger</item>
+        <item name="colorErrorContainer">@color/dangerContainer</item>
         <item name="android:colorBackground">@color/background</item>
-        <item name="android:textColorPrimary">@color/textPrimary</item>
-        <item name="android:textColorSecondary">@color/textSecondary</item>
         <item name="android:windowBackground">@color/background</item>
-        <item name="android:windowActionModeOverlay">false</item>
-        <item name="android:statusBarColor">@color/primaryDark</item>
-        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:textColorPrimary">@color/onSurface</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">@color/statusBar</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
 
-        <!-- Buttons and inputs -->
-        <item name="android:buttonStyle">@style/AttendioButton</item>
-        <item name="android:editTextStyle">@style/AttendioEditText</item>
+        <!-- Typography -->
+        <item name="android:fontFamily">sans-serif</item>
+
+        <!-- Component defaults -->
+        <item name="materialButtonStyle">@style/Widget.Attendio.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.Attendio.Card</item>
+        <item name="textInputStyle">@style/Widget.Attendio.TextInput</item>
+        <item name="chipStyle">@style/Widget.Attendio.Chip</item>
+        <item name="toolbarStyle">@style/Widget.Attendio.Toolbar</item>
     </style>
 
-    <!-- Modern filled brand button -->
-    <style name="AttendioButton">
-        <item name="android:background">@drawable/bg_button_primary</item>
-        <item name="android:textColor">@color/onPrimary</item>
-        <item name="android:textSize">16sp</item>
+    <!-- ============================ Buttons ============================ -->
+
+    <style name="Widget.Attendio.Button" parent="Widget.Material3.Button">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">52dp</item>
         <item name="android:paddingTop">14dp</item>
         <item name="android:paddingBottom">14dp</item>
-        <item name="android:minHeight">48dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="iconPadding">12dp</item>
     </style>
 
-    <!-- Outlined / secondary button -->
-    <style name="AttendioButton.Outlined">
-        <item name="android:background">@drawable/bg_button_outlined</item>
-        <item name="android:textColor">@color/primary</item>
-        <item name="android:textSize">16sp</item>
+    <style name="Widget.Attendio.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">52dp</item>
         <item name="android:paddingTop">14dp</item>
         <item name="android:paddingBottom">14dp</item>
-        <item name="android:minHeight">48dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/outline</item>
+        <item name="iconPadding">12dp</item>
     </style>
 
-    <!-- Menu navigation row -->
-    <style name="AttendioMenuButton">
-        <item name="android:background">@drawable/bg_list_row</item>
-        <item name="android:textColor">@color/textPrimary</item>
-        <item name="android:drawableTint">@color/primary</item>
-        <item name="android:textSize">16sp</item>
+    <style name="Widget.Attendio.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:gravity">start|center_vertical</item>
-        <item name="android:paddingLeft">20dp</item>
-        <item name="android:paddingRight">20dp</item>
-        <item name="android:drawablePadding">16dp</item>
-        <item name="android:minHeight">58dp</item>
-        <item name="android:elevation">2dp</item>
-        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">46dp</item>
+        <item name="cornerRadius">14dp</item>
     </style>
 
-    <!-- Menu logout row -->
-    <style name="AttendioMenuButton.Outlined">
-        <item name="android:background">@drawable/bg_list_row</item>
-        <item name="android:textColor">@color/danger</item>
-        <item name="android:drawableTint">@color/danger</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="android:gravity">start|center_vertical</item>
-        <item name="android:paddingLeft">20dp</item>
-        <item name="android:paddingRight">20dp</item>
-        <item name="android:drawablePadding">16dp</item>
-        <item name="android:minHeight">58dp</item>
-        <item name="android:elevation">2dp</item>
-        <item name="android:layout_marginBottom">12dp</item>
+    <!-- Legacy aliases kept so any remaining layout honours the new look -->
+    <style name="AttendioButton" parent="Widget.Attendio.Button" />
+    <style name="AttendioButton.Outlined" parent="Widget.Attendio.Button.Outlined" />
+    <style name="AttendioMenuButton" parent="Widget.Attendio.Button.Tonal" />
+    <style name="AttendioMenuButton.Outlined" parent="Widget.Attendio.Button.Outlined" />
+
+    <!-- ============================ Cards ============================ -->
+
+    <style name="Widget.Attendio.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/outlineVariant</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="contentPadding">20dp</item>
     </style>
 
-    <!-- Rounded filled input field (light surfaces) -->
-    <style name="AttendioEditText">
+    <style name="Widget.Attendio.Card.Row" parent="Widget.Attendio.Card">
+        <item name="cardCornerRadius">18dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- ============================ Inputs ============================ -->
+
+    <style name="Widget.Attendio.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/surface</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxStrokeColor">@color/outline</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">@color/textSecondary</item>
+        <item name="android:textColorHint">@color/textSecondary</item>
+    </style>
+
+    <!-- Outlined input placed on the dark gradient hero (login) -->
+    <style name="Widget.Attendio.TextInput.OnDark" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">#1FFFFFFF</item>
+        <item name="boxStrokeColor">#66FFFFFF</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">#C7D2FE</item>
+        <item name="android:textColorHint">#C7D2FE</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+    </style>
+
+    <!-- Legacy input styles -->
+    <style name="AttendioEditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/bg_input</item>
         <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textColorHint">@color/textSecondary</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:minHeight">48dp</item>
-        <item name="android:fontFamily">sans-serif</item>
     </style>
 
-    <!-- Rounded translucent input field (gradient / dark screens) -->
-    <style name="AttendioEditTextOnDark">
+    <style name="AttendioEditTextOnDark" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/bg_input_on_dark</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textColorHint">#B9C4F5</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
         <item name="android:minHeight">50dp</item>
-        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textCursorDrawable">@drawable/bg_cursor</item>
     </style>
 
-    <!-- Screen section title -->
+    <style name="AttendioSpinner">
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+    </style>
+
+    <!-- ============================ Chips ============================ -->
+
+    <style name="Widget.Attendio.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="chipBackgroundColor">@color/surfaceVariant</item>
+        <item name="chipStrokeColor">@color/outlineVariant</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">12dp</item>
+        <item name="android:textColor">@color/onSurface</item>
+        <item name="chipMinHeight">36dp</item>
+    </style>
+
+    <!-- ============================ Toolbar ============================ -->
+
+    <style name="Widget.Attendio.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/primary</item>
+        <item name="titleTextColor">@color/onPrimary</item>
+        <item name="subtitleTextColor">#C7D2FE</item>
+        <item name="navigationIconTint">@color/onPrimary</item>
+    </style>
+
+    <!-- ============================ Text ============================ -->
+
     <style name="AttendioTitle">
         <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textSize">22sp</item>
@@ -114,7 +194,6 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- Screen title shown on gradient headers -->
     <style name="AttendioHeader">
         <item name="android:textColor">@color/onPrimary</item>
         <item name="android:textSize">26sp</item>
@@ -122,20 +201,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- Supporting text under a gradient header title -->
     <style name="AttendioHeaderSub">
         <item name="android:textColor">#C7D2FE</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <!-- Floating white card panel for forms -->
-    <style name="AttendioPanel">
-        <item name="android:background">@drawable/bg_card</item>
-        <item name="android:elevation">3dp</item>
-        <item name="android:padding">20dp</item>
-    </style>
-
-    <!-- Field label inside a form panel -->
     <style name="AttendioLabel">
         <item name="android:textColor">@color/textSecondary</item>
         <item name="android:textSize">13sp</item>
@@ -144,7 +214,6 @@
         <item name="android:letterSpacing">0.02</item>
     </style>
 
-    <!-- Small section header inside a panel -->
     <style name="AttendioPanelTitle">
         <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textSize">18sp</item>
@@ -152,20 +221,29 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- Rounded spinner matching the input fields -->
-    <style name="AttendioSpinner">
-        <item name="android:background">@drawable/bg_input</item>
-        <item name="android:minHeight">50dp</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">12dp</item>
+    <!-- ============================ Layout helpers ============================ -->
+
+    <style name="AttendioPanel">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:elevation">1dp</item>
+        <item name="android:padding">20dp</item>
     </style>
 
-    <!-- List row: white card with leading icon -->
     <style name="AttendioListRow">
         <item name="android:background">@drawable/bg_list_row</item>
         <item name="android:padding">14dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:elevation">1dp</item>
+    </style>
+
+    <style name="TextAppearance.Attendio.SectionTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Attendio.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/textSecondary</item>
     </style>
 </resources>

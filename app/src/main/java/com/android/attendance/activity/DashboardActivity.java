@@ -2,7 +2,7 @@ package com.android.attendance.activity;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +20,7 @@ import com.android.attendance.bean.StudentBean;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
-public class DashboardActivity extends Activity {
+public class DashboardActivity extends AppCompatActivity {
 
 	private DBAdapter dbAdapter;
 
@@ -35,9 +35,9 @@ public class DashboardActivity extends Activity {
 		int facultyCount = dbAdapter.getAllFaculty().size();
 		int sessionCount = dbAdapter.getAllAttendanceSession().size();
 
-		((TextView) findViewById(R.id.tvStudentCount)).setText("Students: " + studentCount);
-		((TextView) findViewById(R.id.tvFacultyCount)).setText("Faculty: " + facultyCount);
-		((TextView) findViewById(R.id.tvSessionCount)).setText("Attendance Sessions: " + sessionCount);
+		((TextView) findViewById(R.id.tvStudentCount)).setText(String.valueOf(studentCount));
+		((TextView) findViewById(R.id.tvFacultyCount)).setText(String.valueOf(facultyCount));
+		((TextView) findViewById(R.id.tvSessionCount)).setText(String.valueOf(sessionCount));
 
 		buildRiskList();
 

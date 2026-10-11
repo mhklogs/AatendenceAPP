@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,7 +14,7 @@
         android:paddingStart="20dp"
         android:paddingTop="24dp"
         android:paddingEnd="20dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="26dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,7 +23,7 @@
             android:textColor="@color/onPrimary"
             android:textSize="26sp"
             android:fontFamily="sans-serif-black"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
             android:layout_marginTop="4dp"
             android:text="@string/dashboard_subtitle"
             android:textColor="#C7D2FE"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,153 +43,201 @@
         android:paddingEnd="12dp"
         android:baselineAligned="false">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Attendio.Card"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@drawable/bg_stat_card"
-            android:elevation="2dp"
-            android:padding="14dp"
-            android:gravity="center">
+            app:cardElevation="1dp"
+            app:contentPadding="14dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="@string/students"
-                android:tint="@color/primary"
-                android:src="@drawable/ic_stat_students"/>
-
-            <TextView
-                android:id="@+id/tvStudentCount"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/textPrimary"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:text="Students: 0"/>
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/students"
-                android:textColor="@color/textSecondary"
-                android:textSize="12sp"/>
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/students"
+                    app:tint="@color/primary"
+                    android:src="@drawable/ic_stat_students" />
 
-        <LinearLayout
+                <TextView
+                    android:id="@+id/tvStudentCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/students"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Attendio.Card"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@drawable/bg_stat_card"
-            android:elevation="2dp"
-            android:padding="14dp"
             android:layout_marginStart="8dp"
-            android:gravity="center">
+            app:cardElevation="1dp"
+            app:contentPadding="14dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="@string/faculty"
-                android:tint="@color/secondary"
-                android:src="@drawable/ic_stat_faculty"/>
-
-            <TextView
-                android:id="@+id/tvFacultyCount"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/textPrimary"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:text="Faculty: 0"/>
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/faculty"
-                android:textColor="@color/textSecondary"
-                android:textSize="12sp"/>
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/faculty"
+                    app:tint="@color/secondaryDark"
+                    android:src="@drawable/ic_stat_faculty" />
 
-        <LinearLayout
+                <TextView
+                    android:id="@+id/tvFacultyCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/faculty"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Attendio.Card"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@drawable/bg_stat_card"
-            android:elevation="2dp"
-            android:padding="14dp"
             android:layout_marginStart="8dp"
-            android:gravity="center">
+            app:cardElevation="1dp"
+            app:contentPadding="14dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="@string/sessions"
-                android:tint="@color/info"
-                android:src="@drawable/ic_stat_sessions"/>
-
-            <TextView
-                android:id="@+id/tvSessionCount"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/textPrimary"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:text="Sessions: 0"/>
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/sessions"
-                android:textColor="@color/textSecondary"
-                android:textSize="12sp"/>
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/sessions"
+                    app:tint="@color/info"
+                    android:src="@drawable/ic_stat_sessions" />
+
+                <TextView
+                    android:id="@+id/tvSessionCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/sessions"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="18dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@string/at_risk_heading"
+            android:src="@drawable/ic_bar_chart"
+            app:tint="@color/warning" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/at_risk_heading"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/tvRiskSummary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/warning"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:textColor="@color/textSecondary"
+        android:textSize="13sp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="18dp"
-        android:text="@string/risk_initial"/>
+        android:text="@string/risk_initial" />
 
     <ListView
         android:id="@+id/lvRisk"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
         android:divider="@android:color/transparent"
         android:dividerHeight="8dp"
+        android:clipToPadding="false"
         android:paddingStart="12dp"
-        android:paddingEnd="12dp"/>
+        android:paddingEnd="12dp"
+        android:scrollbars="none" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnExportCSV"
-        style="@style/AttendioButton.Outlined"
+        style="@style/Widget.Attendio.Button.Tonal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/export_csv" />
+        android:text="@string/export_csv"
+        app:backgroundTint="@color/primaryContainer"
+        android:textColor="@color/onPrimaryContainer" />
 
 </LinearLayout>

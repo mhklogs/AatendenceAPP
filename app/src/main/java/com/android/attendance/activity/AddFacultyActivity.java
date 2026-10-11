@@ -4,7 +4,7 @@ import com.android.attendance.bean.FacultyBean;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class AddFacultyActivity extends Activity {
+public class AddFacultyActivity extends AppCompatActivity {
 
 	Button registerButton;
 	EditText textFirstName;

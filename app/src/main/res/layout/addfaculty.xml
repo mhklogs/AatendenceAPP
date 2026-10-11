@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,116 +32,110 @@
             android:layout_marginBottom="18dp"
             android:text="@string/add_faculty_subtitle" />
 
-        <LinearLayout
-            style="@style/AttendioPanel"
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Attendio.Card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_first_name" />
-
-            <EditText
-                android:id="@+id/editTextFirstName"
-                style="@style/AttendioEditText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:ems="10"
-                android:hint="@string/field_first_name"
-                android:inputType="textPersonName">
+                android:orientation="vertical">
 
-                <requestFocus />
-            </EditText>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Attendio.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/field_first_name">
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_last_name" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:maxLines="1">
 
-            <EditText
-                android:id="@+id/editTextLastName"
-                style="@style/AttendioEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:ems="10"
-                android:hint="@string/field_last_name"
-                android:inputType="textPersonName" />
+                        <requestFocus />
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_contact" />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Attendio.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/field_last_name">
 
-            <EditText
-                android:id="@+id/editTextPhone"
-                style="@style/AttendioEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:ems="10"
-                android:hint="@string/field_contact"
-                android:inputType="phone" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_address" />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Attendio.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/field_contact">
 
-            <EditText
-                android:id="@+id/editTextaddr"
-                style="@style/AttendioEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:ems="10"
-                android:hint="@string/field_address"
-                android:inputType="textPostalAddress" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/field_username" />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Attendio.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/field_address">
 
-            <EditText
-                android:id="@+id/editTextUserName"
-                style="@style/AttendioEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:ems="10"
-                android:hint="@string/field_username"
-                android:inputType="textPersonName" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextaddr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPostalAddress"
+                        android:maxLines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                style="@style/AttendioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="@string/password" />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Attendio.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/field_username">
 
-            <EditText
-                android:id="@+id/editTextPassword"
-                style="@style/AttendioEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
-        </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Attendio.TextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/password"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/MessageforRegister"
@@ -149,19 +144,19 @@
             android:layout_marginTop="14dp"
             android:gravity="center"
             android:text="@string/empty"
-            android:textColor="@color/warning" />
+            android:textColor="@color/danger" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/RegisterButton"
-            style="@style/AttendioButton"
+            style="@style/Widget.Attendio.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="@string/add_faculty_action" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/Cancel_Button"
-            style="@style/AttendioButton.Outlined"
+            style="@style/Widget.Attendio.Button.Outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

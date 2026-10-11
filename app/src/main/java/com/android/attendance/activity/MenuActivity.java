@@ -8,34 +8,34 @@ import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
 import android.os.Bundle;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends AppCompatActivity {
 
-	Button addStudent;
-	Button addFaculty;
-	Button viewStudent;
-	Button viewFaculty;
-	Button logout;
-	Button attendancePerStudent;
-	Button dashboard;
+	View addStudent;
+	View addFaculty;
+	View viewStudent;
+	View viewFaculty;
+	View logout;
+	View attendancePerStudent;
+	View dashboard;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu);
 
-		addStudent =(Button)findViewById(R.id.buttonaddstudent);
-		addFaculty =(Button)findViewById(R.id.buttonaddfaculty);
-		viewStudent =(Button)findViewById(R.id.buttonViewstudent);
-		viewFaculty =(Button)findViewById(R.id.buttonviewfaculty);
-		logout =(Button)findViewById(R.id.buttonlogout);
-		dashboard =(Button)findViewById(R.id.dashboardButton);
+		addStudent =(View)findViewById(R.id.buttonaddstudent);
+		addFaculty =(View)findViewById(R.id.buttonaddfaculty);
+		viewStudent =(View)findViewById(R.id.buttonViewstudent);
+		viewFaculty =(View)findViewById(R.id.buttonviewfaculty);
+		logout =(View)findViewById(R.id.buttonlogout);
+		dashboard =(View)findViewById(R.id.dashboardButton);
 
 		dashboard.setOnClickListener(new OnClickListener() {
 
@@ -101,7 +101,7 @@ public class MenuActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-		attendancePerStudent=(Button)findViewById(R.id.attendancePerStudentButton);
+		attendancePerStudent=(View)findViewById(R.id.attendancePerStudentButton);
 		attendancePerStudent.setOnClickListener(new OnClickListener() {
 			
 			@Override

@@ -2,7 +2,7 @@ package com.android.attendance.activity;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
@@ -13,7 +13,7 @@ import com.android.attendance.context.ApplicationContext;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
-public class ViewAttendancePerStudentActivity extends Activity {
+public class ViewAttendancePerStudentActivity extends AppCompatActivity {
 
 	ArrayList<AttendanceBean> attendanceBeanList;
 	private ListView listView ;  

@@ -2,7 +2,7 @@ package com.android.attendance.activity;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ import com.android.attendance.context.ApplicationContext;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
-public class AddAttendanceActivity extends Activity {
+public class AddAttendanceActivity extends AppCompatActivity {
 
 	ArrayList<StudentBean> studentBeanList;
 	private ListView listView ;  

@@ -11,7 +11,7 @@ import com.android.attendance.context.ApplicationContext;
 import com.android.attendance.db.DBAdapter;
 import com.example.androidattendancesystem.R;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -32,7 +32,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddAttandanceSessionActivity<AddAttandanceActivity> extends Activity {
+public class AddAttandanceSessionActivity extends AppCompatActivity {
 
 	private ImageButton date;
 	private Calendar cal;

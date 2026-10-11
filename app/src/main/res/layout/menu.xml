@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,16 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="20dp"
         android:paddingTop="28dp"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="28dp">
+        android:paddingEnd="20dp"
+        android:paddingBottom="32dp">
 
         <TextView
             android:id="@+id/menuTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:text="@string/app_name"
             android:textColor="@color/onPrimary"
             android:textSize="30sp"
@@ -30,68 +30,322 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="22dp"
             android:text="@string/menu_subtitle"
             android:textColor="#C7D2FE"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/buttonaddstudent"
-            style="@style/AttendioMenuButton"
+        <TextView
+            style="@style/AttendioHeaderSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/menu_section_manage"
+            android:textColor="#E0E7FF"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:letterSpacing="0.04" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_add_student"
-            android:text="@string/menu_add_student" />
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
-        <Button
-            android:id="@+id/buttonViewstudent"
-            style="@style/AttendioMenuButton"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/buttonaddstudent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_row_icon"
+                        android:contentDescription="@string/menu_add_student"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_add_student"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/menu_add_student"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/buttonViewstudent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_row_icon"
+                        android:contentDescription="@string/menu_view_students"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_view_students"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/menu_view_students"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_view_students"
-            android:text="@string/menu_view_students" />
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
-        <Button
-            android:id="@+id/buttonaddfaculty"
-            style="@style/AttendioMenuButton"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/buttonaddfaculty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_row_icon"
+                        android:contentDescription="@string/menu_add_faculty"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_add_faculty"
+                        app:tint="@color/secondaryDark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/menu_add_faculty"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/buttonviewfaculty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_row_icon"
+                        android:contentDescription="@string/menu_view_faculty"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_view_faculty"
+                        app:tint="@color/secondaryDark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/menu_view_faculty"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <TextView
+            style="@style/AttendioHeaderSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/menu_section_reports"
+            android:textColor="#E0E7FF"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:letterSpacing="0.04" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_add_faculty"
-            android:text="@string/menu_add_faculty" />
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
-        <Button
-            android:id="@+id/buttonviewfaculty"
-            style="@style/AttendioMenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_view_faculty"
-            android:text="@string/menu_view_faculty" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/attendancePerStudentButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
 
-        <Button
-            android:id="@+id/attendancePerStudentButton"
-            style="@style/AttendioMenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_bar_chart"
-            android:text="@string/menu_per_student" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
-        <Button
-            android:id="@+id/dashboardButton"
-            style="@style/AttendioMenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_dashboard"
-            android:text="@string/menu_dashboard" />
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_row_icon"
+                        android:contentDescription="@string/menu_per_student"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_bar_chart"
+                        app:tint="@color/tertiary" />
 
-        <Button
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/menu_per_student"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/dashboardButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_row_icon"
+                        android:contentDescription="@string/menu_dashboard"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_dashboard"
+                        app:tint="@color/tertiary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/menu_dashboard"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/buttonlogout"
-            style="@style/AttendioMenuButton.Outlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_logout"
-            android:text="@string/menu_logout" />
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="#1AFFFFFF"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#33FFFFFF"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="18dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_row_icon"
+                    android:contentDescription="@string/menu_logout"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_logout_white"
+                    app:tint="@color/onPrimary" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/menu_logout"
+                    android:textColor="@color/onPrimary"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>
