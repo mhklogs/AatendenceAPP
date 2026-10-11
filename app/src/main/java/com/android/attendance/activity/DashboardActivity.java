@@ -77,7 +77,7 @@ public class DashboardActivity extends Activity {
 		}
 
 		ListView lv = (ListView) findViewById(R.id.lvRisk);
-		lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lines));
+		lv.setAdapter(new ArrayAdapter<String>(this, R.layout.dashboard_risk_row, R.id.tvRisk, lines));
 
 		// Export/share CSV of this report
 		((Button) findViewById(R.id.btnExportCSV)).setOnClickListener(new OnClickListener() {

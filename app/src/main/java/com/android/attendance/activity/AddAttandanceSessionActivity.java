@@ -77,7 +77,7 @@ public class AddAttandanceSessionActivity<AddAttandanceActivity> extends Activit
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				((TextView) arg0.getChildAt(0)).setTextColor(Color.WHITE);
+				((TextView) arg0.getChildAt(0)).setTextColor(0xFF0F172A);
 				branch =(String) spinnerbranch.getSelectedItem();
 			}
 
@@ -96,7 +96,7 @@ public class AddAttandanceSessionActivity<AddAttandanceActivity> extends Activit
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				((TextView) arg0.getChildAt(0)).setTextColor(Color.WHITE);
+				((TextView) arg0.getChildAt(0)).setTextColor(0xFF0F172A);
 				year =(String) spinneryear.getSelectedItem();
 				Toast.makeText(getApplicationContext(), "year:"+year, Toast.LENGTH_SHORT).show();
 
@@ -129,7 +129,7 @@ public class AddAttandanceSessionActivity<AddAttandanceActivity> extends Activit
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				((TextView) arg0.getChildAt(0)).setTextColor(Color.WHITE);
+				((TextView) arg0.getChildAt(0)).setTextColor(0xFF0F172A);
 				subject =(String) spinnerSubject.getSelectedItem();
 
 			}

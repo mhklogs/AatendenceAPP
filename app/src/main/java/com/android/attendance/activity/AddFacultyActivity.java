@@ -42,6 +42,13 @@ public class AddFacultyActivity extends Activity {
 		textpassword=(EditText)findViewById(R.id.editTextPassword);
 		registerButton=(Button)findViewById(R.id.RegisterButton);
 
+		findViewById(R.id.Cancel_Button).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+
 		registerButton.setOnClickListener(new OnClickListener() {
 
 			@Override

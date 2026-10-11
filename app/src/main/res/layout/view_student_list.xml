@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AttendioListRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/label"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:padding="10dip"
-        android:textSize="16dip"
-        android:textStyle="bold" >
-</TextView>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_row_icon"
+        android:contentDescription="@string/students"
+        android:padding="9dp"
+        android:src="@drawable/ic_view_students" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="14dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textPrimary"
+        android:textSize="15sp"
+        android:lineSpacingExtra="2dp" />
+</LinearLayout>

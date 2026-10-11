@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AttendioListRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:contentDescription="@string/risk_initial"
+        android:tint="@color/warning"
+        android:src="@drawable/ic_bar_chart" />
+
+    <TextView
+        android:id="@+id/tvRisk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textPrimary"
+        android:textSize="14sp" />
+</LinearLayout>

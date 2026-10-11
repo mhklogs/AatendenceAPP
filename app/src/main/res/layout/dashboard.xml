@@ -48,6 +48,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="@drawable/bg_stat_card"
+            android:elevation="2dp"
             android:padding="14dp"
             android:gravity="center">
 
@@ -55,6 +56,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="@string/students"
+                android:tint="@color/primary"
                 android:src="@drawable/ic_stat_students"/>
 
             <TextView
@@ -83,6 +85,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="@drawable/bg_stat_card"
+            android:elevation="2dp"
             android:padding="14dp"
             android:layout_marginStart="8dp"
             android:gravity="center">
@@ -91,6 +94,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="@string/faculty"
+                android:tint="@color/secondary"
                 android:src="@drawable/ic_stat_faculty"/>
 
             <TextView
@@ -119,6 +123,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="@drawable/bg_stat_card"
+            android:elevation="2dp"
             android:padding="14dp"
             android:layout_marginStart="8dp"
             android:gravity="center">
@@ -127,6 +132,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="@string/sessions"
+                android:tint="@color/info"
                 android:src="@drawable/ic_stat_sessions"/>
 
             <TextView

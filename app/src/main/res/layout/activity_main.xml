@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="@string/get_started"
-            android:drawableStart="@drawable/ic_logout_white"
+            android:drawableStart="@drawable/ic_app_check"
             android:textAllCaps="false"
             android:letterSpacing="0.01" />
 

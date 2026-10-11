@@ -47,12 +47,19 @@ public class AddStudentActivity extends Activity {
 		textaddress=(EditText)findViewById(R.id.editTextaddr);
 		registerButton=(Button)findViewById(R.id.RegisterButton);
 
+		findViewById(R.id.Cancel_Button).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+
 		spinnerbranch.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				((TextView) arg0.getChildAt(0)).setTextColor(Color.WHITE);
+				((TextView) arg0.getChildAt(0)).setTextColor(0xFF0F172A);
 				branch =(String) spinnerbranch.getSelectedItem();
 
 			}
@@ -76,7 +83,7 @@ public class AddStudentActivity extends Activity {
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int arg2, long arg3) {
 				// TODO Auto-generated method stub
-				((TextView) arg0.getChildAt(0)).setTextColor(Color.WHITE);
+				((TextView) arg0.getChildAt(0)).setTextColor(0xFF0F172A);
 				year =(String) spinneryear.getSelectedItem();
 
 			}

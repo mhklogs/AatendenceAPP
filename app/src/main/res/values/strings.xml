@@ -28,4 +28,54 @@
     <string name="export_csv">Export / Share CSV Report</string>
     <string name="features">✓ Mark attendance in seconds\n✓ Track at-risk students\n✓ Export &amp; share reports\n✓ Works fully offline</string>
 
+    <!-- Shared -->
+    <string name="cancel">Cancel</string>
+    <string name="empty" translatable="false"></string>
+
+    <!-- Field labels -->
+    <string name="field_first_name">First name</string>
+    <string name="field_last_name">Last name</string>
+    <string name="field_contact">Contact number</string>
+    <string name="field_address">Address</string>
+    <string name="field_branch">Branch</string>
+    <string name="field_year">Year</string>
+    <string name="field_subject">Subject</string>
+    <string name="field_date">Date</string>
+    <string name="field_username">Username</string>
+
+    <!-- Add student -->
+    <string name="add_student_title">Add New Student</string>
+    <string name="add_student_subtitle">Register a student to a branch and year</string>
+    <string name="add_student_action">Save Student</string>
+
+    <!-- Add faculty -->
+    <string name="add_faculty_title">Add New Faculty</string>
+    <string name="add_faculty_subtitle">Create a faculty login and profile</string>
+    <string name="add_faculty_action">Save Faculty</string>
+
+    <!-- Attendance session -->
+    <string name="session_title">New Attendance Session</string>
+    <string name="session_subtitle">Pick a class, subject and date to begin</string>
+    <string name="session_action">Start Attendance</string>
+    <string name="session_view">View Session Attendance</string>
+    <string name="session_view_total">View Total Attendance</string>
+
+    <!-- View students -->
+    <string name="view_students_title">View Students</string>
+    <string name="view_students_subtitle">Select a branch and year to list students</string>
+    <string name="show_students">Show Students</string>
+
+    <!-- Screen titles -->
+    <string name="title_sign_in">Sign In</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_add_faculty">Add Faculty</string>
+    <string name="title_add_student">Add Student</string>
+    <string name="title_faculty">Faculty</string>
+    <string name="title_students">Students</string>
+    <string name="title_new_session">New Session</string>
+    <string name="title_mark_attendance">Mark Attendance</string>
+    <string name="title_session_attendance">Session Attendance</string>
+    <string name="title_per_student">Per-Student Report</string>
+
 </resources>
