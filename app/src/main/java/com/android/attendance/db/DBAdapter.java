@@ -151,8 +151,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 	{
 		SQLiteDatabase db = this.getWritableDatabase();
 		
-		String query = "SELECT * FROM faculty_table where faculty_username='"+userName+"' and faculty_password='"+password+"'";
-		Cursor cursor = db.rawQuery(query, null);
+		Cursor cursor = db.query("faculty_table", null, "faculty_username=? AND faculty_password=?", new String[]{userName, password}, null, null, null);
 
 		if(cursor.moveToFirst()) 
 		{
